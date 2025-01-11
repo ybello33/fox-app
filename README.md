@@ -178,6 +178,7 @@ kubectl get pods -n keda
 ![Screenshot 2025-01-11 at 16 25 24](https://github.com/user-attachments/assets/2e976ce4-c9e6-43de-8f74-97b7119e45f9)
 
 ##### 2. Create a ScaledObject to use KEDA’s Metric API scaler for scaling the Fox app based on the count field of the Counter Service.
+fox-scaler.yaml
 ```yaml
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
@@ -215,15 +216,128 @@ kubectl get scaledobject
 ```bash
 curl http://local-ip/plusone
 ```
-##### 1. Repeat the request couple time & Monitor the Fox app
+![Screenshot 2025-01-11 at 16 52 30](https://github.com/user-attachments/assets/ebbb3ecf-62a5-473d-9c40-821bd2a20b12)
+
+
+
+#### Option of Using Helm
+##### 1. Create a Helm Chart
 ```bash
-kubectl get pods -l app=fox
+helm create fox-autoscaler
 ```
-
-
-
-
-
+```helm
+This will generate the basic Helm chart structure:
+fox-autoscaler/
+├── Chart.yaml
+├── values.yaml
+├── templates/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   ├── scaler.yaml
+│   └── _helpers.tpl
+```
+##### 2. Templates Definition in the Chart
+deployment.yaml: (Counter and Fox Apps)
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.counter.name }}
+  labels:
+    app: counter
+spec:
+  replicas: {{ .Values.counter.replicas }}
+  selector:
+    matchLabels:
+      app: counter
+  template:
+    metadata:
+      labels:
+        app: counter
+    spec:
+      containers:
+        - name: counter-service
+          image: {{ .Values.counter.image }}
+          ports:
+            - containerPort: {{ .Values.counter.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.counter.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fox-app
+  labels:
+    app: fox
+spec:
+  replicas: {{ .Values.fox.replicas }}
+  selector:
+    matchLabels:
+      app: fox
+  template:
+    metadata:
+      labels:
+        app: fox
+    spec:
+      containers:
+        - name: fox-app
+          image: {{ .Values.fox.image }}
+          ports:
+            - containerPort: {{ .Values.fox.port }}
+```
+service.yaml:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter-service
+spec:
+  selector:
+    app: counter
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.counter.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fox-service
+spec:
+  selector:
+    app: fox
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: {{ .Values.fox.port }}
+```
+scaler.yaml:
+```yaml
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: fox-scaler
+  namespace: default
+  labels:
+    app: fox
+spec:
+  scaleTargetRef:
+    name: fox-app
+  pollingInterval: 10
+  cooldownPeriod: 30
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  triggers:
+    - type: metrics-api
+      metadata:
+        scalerAddress: {{ .Values.counter.metricEndpoint }}
+        metricName: foxes
+        value: "{{ .Values.scaling.threshold }}"
+```
 
 
 
