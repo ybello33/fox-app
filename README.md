@@ -1,4 +1,4 @@
-# Fox Autoscaler Project 🦊
+# Fox Autoscaler Home Exercise 🦊
 
 This project implements a Kubernetes-based application deployment for a Counter Service and a Fox App. The deployment is enhanced with Kubernetes Event-Driven Autoscaling (KEDA) to dynamically scale the Fox App based on the Counter Service’s metrics.
 
