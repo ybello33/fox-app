@@ -377,7 +377,7 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 25 40](https://github.com/user-attachments/assets/85bc242e-3539-4aef-91d1-afaaca84ef54)
 
 #### 4. Endpoints
-
+![Screenshot 2025-01-11 at 17 25 58](https://github.com/user-attachments/assets/1d0e6315-fd88-467f-a7f0-fbf2b93231b9)
 
 #### 5. Helm Charts
 
