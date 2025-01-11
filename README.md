@@ -173,6 +173,8 @@ kubectl get pods
 ```bash
 kubectl get pods -n keda
 ```
+![Screenshot 2025-01-11 at 16 25 24](https://github.com/user-attachments/assets/2e976ce4-c9e6-43de-8f74-97b7119e45f9)
+
 ##### 2. Create a ScaledObject to use KEDA’s Metric API scaler for scaling the Fox app based on the count field of the Counter Service.
 ```yaml
 apiVersion: keda.sh/v1alpha1
