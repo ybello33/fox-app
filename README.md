@@ -365,7 +365,7 @@ Verify deployment:
 helm list
 kubectl get pods
 ```
-
+![Screenshot 2025-01-11 at 17 45 23](https://github.com/user-attachments/assets/a0697a1a-5f77-4929-9166-4d886726e154)
 
 
 ### Docker Desktop - Info 
@@ -385,7 +385,6 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 26 35](https://github.com/user-attachments/assets/2a00d9eb-036f-4a14-a00e-62e5a450a5b0)
 
 #### 6. Helm Release
-
 
 
 
