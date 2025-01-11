@@ -213,12 +213,13 @@ kubectl get scaledobject
 #### Step 5: Testing Autoscaling
 ##### 1. Scale Up Increase the Counter Service value using the /plusone endpoint
 ```bash
-curl http://<counter-service-cluster-ip>/plusone
+curl http://local-ip/plusone
 ```
 ##### 1. Repeat the request couple time & Monitor the Fox app
 ```bash
 kubectl get pods -l app=fox
 ```
+
 
 
 
