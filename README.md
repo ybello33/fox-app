@@ -366,6 +366,22 @@ helm list
 kubectl get pods
 ```
 
+### Docker Desktop - Info 
+#### 1. Deployment Services
+![Screenshot 2025-01-11 at 17 25 02](https://github.com/user-attachments/assets/f0ec329a-2592-49e5-adfb-5e40302b62cd)
+
+#### 2. Services
+
+
+#### 3. Pods per Services & namespacs
+
+
+#### 4. Endpoints
+
+
+#### 5. Helm 
+
+#### 6. Helm Release
 
 
 
