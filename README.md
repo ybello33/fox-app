@@ -368,6 +368,8 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 45 23](https://github.com/user-attachments/assets/a0697a1a-5f77-4929-9166-4d886726e154)
 
 
+### Docker hub Registry - Info 
+
 ### Docker Desktop - Info 
 #### 1. Deployment Services
 ![Screenshot 2025-01-11 at 17 25 02](https://github.com/user-attachments/assets/f0ec329a-2592-49e5-adfb-5e40302b62cd)
