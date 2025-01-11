@@ -168,6 +168,8 @@ kubectl get deployments
 kubectl get services
 kubectl get pods
 ```
+![Screenshot 2025-01-11 at 16 27 30](https://github.com/user-attachments/assets/e834fd9f-3f23-4d2b-bb87-23c0ccc125ef)
+
 #### Step 5: Keda for autoscaling the Fox app based on the count metric from the Counter Service.
 ##### 1. verify that the KEDA components are installed and running in the keda namespace
 ```bash
@@ -207,6 +209,17 @@ kubectl apply -f fox-scaler.yaml
 kubectl get scaledobject
 ```
 ![Screenshot 2025-01-11 at 16 23 18](https://github.com/user-attachments/assets/cf099ab5-b377-4d0d-9b32-836fee05c5dc)
+
+#### Step 5: Testing Autoscaling
+##### 1. Scale Up Increase the Counter Service value using the /plusone endpoint
+```bash
+curl http://<counter-service-cluster-ip>/plusone
+```
+##### 1. Repeat the request couple time & Monitor the Fox app
+```bash
+kubectl get pods -l app=fox
+```
+
 
 
 
