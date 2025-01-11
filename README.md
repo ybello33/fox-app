@@ -371,7 +371,7 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 25 02](https://github.com/user-attachments/assets/f0ec329a-2592-49e5-adfb-5e40302b62cd)
 
 #### 2. Services
-
+![Screenshot 2025-01-11 at 17 25 24](https://github.com/user-attachments/assets/8fa1a26d-8edc-462c-aff4-9645912ad1fa)
 
 #### 3. Pods per Services & namespacs
 
@@ -379,7 +379,7 @@ kubectl get pods
 #### 4. Endpoints
 
 
-#### 5. Helm 
+#### 5. Helm Charts
 
 #### 6. Helm Release
 
