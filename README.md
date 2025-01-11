@@ -204,6 +204,8 @@ kubectl apply -f fox-scaler.yaml
 ```bash
 kubectl get scaledobject
 ```
+![Screenshot 2025-01-11 at 16 23 18](https://github.com/user-attachments/assets/cf099ab5-b377-4d0d-9b32-836fee05c5dc)
+
 
 
 
