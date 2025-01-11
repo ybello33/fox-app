@@ -374,7 +374,7 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 25 24](https://github.com/user-attachments/assets/8fa1a26d-8edc-462c-aff4-9645912ad1fa)
 
 #### 3. Pods per Services & namespacs
-
+![Screenshot 2025-01-11 at 17 25 40](https://github.com/user-attachments/assets/85bc242e-3539-4aef-91d1-afaaca84ef54)
 
 #### 4. Endpoints
 
