@@ -369,6 +369,7 @@ kubectl get pods
 
 
 ### Docker hub Registry - Info 
+![Screenshot 2025-01-11 at 18 03 59](https://github.com/user-attachments/assets/e3997dfb-2186-4045-b7a4-7b57bede916d)
 
 ### Docker Desktop - Info 
 #### 1. Deployment Services
