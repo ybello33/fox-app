@@ -23,7 +23,7 @@ Explain how to install or use the project locally, Include code snippets.
  git clone https://github.com/ybello33/fox-app
 ```
 #### Step 2: Build & Push the "counter-service"
-```bash
+```dockerfile
 # Use a Python base image
 FROM python:3.8-slim
 
