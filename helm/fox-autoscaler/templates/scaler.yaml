@@ -1,0 +1,20 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: fox-scaler
+  namespace: default
+  labels:
+    app: fox
+spec:
+  scaleTargetRef:
+    name: fox-app
+  pollingInterval: 10
+  cooldownPeriod: 30
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  triggers:
+    - type: metrics-api
+      metadata:
+        scalerAddress: {{ .Values.counter.metricEndpoint }}
+        metricName: foxes
+        value: "{{ .Values.scaling.threshold }}"

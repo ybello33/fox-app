@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: fox-autoscaler
+    meta.helm.sh/release-namespace: default
+  labels:
+    app: counter
+  name: counter-service
+  namespace: default
+  resourceVersion: "1191"
+  uid: 2bd34328-7a21-4f01-acae-f5f345a55dad
+spec:
+  clusterIP: 10.101.68.117
+  clusterIPs:
+  - 10.101.68.117
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: counter
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

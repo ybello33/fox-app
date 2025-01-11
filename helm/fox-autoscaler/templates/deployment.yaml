@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.counter.name }}
+  labels:
+    app: counter
+spec:
+  replicas: {{ .Values.counter.replicas }}
+  selector:
+    matchLabels:
+      app: counter
+  template:
+    metadata:
+      labels:
+        app: counter
+    spec:
+      containers:
+        - name: counter-service
+          image: {{ .Values.counter.image }}
+          ports:
+            - containerPort: {{ .Values.counter.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.counter.port }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fox-app
+  labels:
+    app: fox
+spec:
+  replicas: {{ .Values.fox.replicas }}
+  selector:
+    matchLabels:
+      app: fox
+  template:
+    metadata:
+      labels:
+        app: fox
+    spec:
+      containers:
+        - name: fox-app
+          image: {{ .Values.fox.image }}
+          ports:
+            - containerPort: {{ .Values.fox.port }}
