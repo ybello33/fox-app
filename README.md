@@ -380,6 +380,7 @@ kubectl get pods
 ![Screenshot 2025-01-11 at 17 25 58](https://github.com/user-attachments/assets/1d0e6315-fd88-467f-a7f0-fbf2b93231b9)
 
 #### 5. Helm Charts
+![Screenshot 2025-01-11 at 17 26 35](https://github.com/user-attachments/assets/2a00d9eb-036f-4a14-a00e-62e5a450a5b0)
 
 #### 6. Helm Release
 
