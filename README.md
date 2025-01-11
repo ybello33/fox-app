@@ -338,6 +338,33 @@ spec:
         metricName: foxes
         value: "{{ .Values.scaling.threshold }}"
 ```
+Define values.yaml
+```yaml
+counter:
+  name: counter-service
+  image: ybello/counter-service:latest
+  replicas: 1
+  port: 8000
+  metricEndpoint: http://counter-service.default.svc.cluster.local:80/
+
+fox:
+  name: fox-app
+  image: nginx
+  replicas: 1
+  port: 80
+
+scaling:
+  threshold: 5
+```
+##### 3. Deploy the Chart
+```bash
+helm install fox-autoscaler ./fox-autoscaler
+```
+Verify deployment:
+```bash
+helm list
+kubectl get pods
+```
 
 
 
