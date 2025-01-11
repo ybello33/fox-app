@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fox-app
+  labels:
+    app: fox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fox
+  template:
+    metadata:
+      labels:
+        app: fox
+    spec:
+      containers:
+        - name: fox-app
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
